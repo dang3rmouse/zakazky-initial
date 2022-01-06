@@ -20,11 +20,11 @@
   </ul>
 
   <div>
-    <label for="new-job">Job name: </label>
-    <input id="new-job" #jobName />
+    <label for="new-job">Job code: </label>
+    <input id="new-job" #jobCode />
   
     <!-- (click) passes input value to add() and then clears the input -->
-    <button class="add-button" (click)="add(jobName.value); jobName.value=''">
+    <button class="add-button" (click)="add(jobCode.value); jobCode.value=''">
       Add job
     </button>
   </div>

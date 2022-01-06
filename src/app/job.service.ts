@@ -93,4 +93,18 @@ deleteJob(id: number): Observable<Job> {
   );
 }
 
+/* GET jobs whose job code contains search term */
+searchJobs(term: string): Observable<Job[]> {
+  if (!term.trim()) {
+    // if not search term, return empty job array.
+    return of([]);
+  }
+  return this.http.get<Job[]>(`${this.jobsUrl}/?jobcode=${term}`).pipe(
+    tap(x => x.length ?
+       this.log(`found jobs matching "${term}"`) :
+       this.log(`no jobs matching "${term}"`)),
+    catchError(this.handleError<Job[]>('searchJobs', []))
+  );
+}
+
 }
