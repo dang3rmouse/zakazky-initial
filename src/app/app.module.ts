@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService} from './in-memory-data.service';
 import { JobSearchComponent } from './job-search/job-search.component';
+import { JobFormComponent } from './job-form/job-form.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +23,13 @@ import { JobSearchComponent } from './job-search/job-search.component';
     JobDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    JobSearchComponent
+    JobSearchComponent,
+    JobFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     FormsModule,
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
