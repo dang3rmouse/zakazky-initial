@@ -14,5 +14,17 @@
       <a routerLink="/detail/{{job.id}}">
         <span class="badge">{{job.id}}</span> {{job.client}} {{job.jobcode}}
       </a>
+      <button class="delete" title="delete job"
+  (click)="delete(job)">x</button>
     </li>
   </ul>
+
+  <div>
+    <label for="new-job">Job name: </label>
+    <input id="new-job" #jobName />
+  
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button class="add-button" (click)="add(jobName.value); jobName.value=''">
+      Add job
+    </button>
+  </div>

@@ -32,5 +32,18 @@ export class JobsComponent implements OnInit {
     this.jobService.getJobs().subscribe(jobs => this.jobs = jobs);
   }
 
+  add(jobcode: string): void {
+    jobcode = jobcode.trim();
+    if (!jobcode) { return; }
+    this.jobService.addJob({ jobcode } as Job)
+      .subscribe(job => {
+        this.jobs.push(job);
+      });
+  }
+
+  delete(job: Job): void {
+    this.jobs = this.jobs.filter(h => h !== job);
+    this.jobService.deleteJob(job.id).subscribe();
+  }
 
 }
