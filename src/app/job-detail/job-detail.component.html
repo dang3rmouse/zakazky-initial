@@ -1,0 +1,9 @@
+<div *ngIf="job">
+    <h2>{{job.jobcode | uppercase}} Details</h2>
+  <div><span>id: </span>{{job.id}}</div>
+  <div>
+    <label for="job-jobcode">Job code: </label>
+    <input id="job-jobcode" [(ngModel)]="job.jobcode" placeholder="jobcode">
+  </div>
+  </div> 
+

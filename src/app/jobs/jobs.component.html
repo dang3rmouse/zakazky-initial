@@ -1,4 +1,4 @@
-<h2>{{job.client | uppercase}} Details</h2>
+<!-- <h2>{{job.client | uppercase}} Details</h2>
 <div><span>id: </span>{{job.id}}</div>
 <div><span>client: </span>{{job.client}}</div>
 <div><span>job code: </span>{{job.jobcode}}</div>
@@ -6,11 +6,14 @@
 <div>
     <label for="jobcode">Job code: </label>
     <input id="jobcode" [(ngModel)]="job.jobcode" placeholder="jobcode">
-  </div>
+  </div> -->
 
-  <!-- <h2>My Jobs</h2>
-  <ul class="jobs">
-    <li *ngFor="let job of jobs">
-      <span class="badge">{{job.id}}</span> {{job.jobcode}}
+<h2>My Jobs</h2>
+<ul class="jobs">
+    <li *ngFor="let job of jobs" (click)="onSelect(job)" [class.selected]="job === selectedJob">
+        <span class="badge">{{job.id}}</span> {{job.client}} {{job.jobcode}}
     </li>
-  </ul> -->
+</ul>
+
+
+<app-job-detail [job]="selectedJob"></app-job-detail>
