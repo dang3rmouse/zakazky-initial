@@ -11,7 +11,8 @@ import { MessageService } from '../message.service';
 })
 export class JobsComponent implements OnInit {
   
-  selectedJob?: Job;
+  // selectedJob?: Job;  
+  // removed when separate route created 
 
   jobs: Job[] = [];
 
@@ -21,10 +22,11 @@ export class JobsComponent implements OnInit {
     this.getJobs(); 
   }
 
-  onSelect(job: Job): void {
-    this.selectedJob = job;
-    this.messageService.add(`JobsComponent: Selected job id=${job.jobcode}`);
-  }
+  // onSelect(job: Job): void {
+  //   this.selectedJob = job;
+  //   this.messageService.add(`JobsComponent: Selected job id=${job.jobcode}`);
+  // }
+    // removed when separate route created
 
   getJobs(): void {
     this.jobService.getJobs().subscribe(jobs => this.jobs = jobs);
