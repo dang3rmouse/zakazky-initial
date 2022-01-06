@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { FormsModule } from '@angular/forms';
 import { JobDetailComponent } from './job-detail/job-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JobsComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

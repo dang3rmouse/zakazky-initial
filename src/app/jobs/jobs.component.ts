@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Job } from '../job';
 import { JOBS } from '../mock-jobs';
 import { JobService } from '../job.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-jobs',
@@ -9,29 +10,25 @@ import { JobService } from '../job.service';
   styleUrls: ['./jobs.component.scss']
 })
 export class JobsComponent implements OnInit {
-
-  // job: Job = {
-  //   id: 1,
-  //   client: 'Test',
-  //   jobcode: 'lorem ipsum'
-  // }
   
   selectedJob?: Job;
+
+  jobs: Job[] = [];
+
+  constructor(private jobService: JobService, private messageService: MessageService ) { }
+
+  ngOnInit(): void {
+    this.getJobs(); 
+  }
+
   onSelect(job: Job): void {
     this.selectedJob = job;
+    this.messageService.add(`JobsComponent: Selected job id=${job.jobcode}`);
   }
 
   getJobs(): void {
-    this.jobs = this.jobService.getJobs();
+    this.jobService.getJobs().subscribe(jobs => this.jobs = jobs);
   }
 
-jobs: Job[] = [];
-
-  constructor(private jobService: JobService) { }
-
-  ngOnInit(): void {
-    this.getJobs();
-    
-  }
 
 }
