@@ -16,6 +16,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService} from './in-memory-data.service';
 import { JobSearchComponent } from './job-search/job-search.component';
 import { JobFormComponent } from './job-form/job-form.component';
+import { JobFormReduxComponent } from './job-form-redux/job-form-redux.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { JobFormComponent } from './job-form/job-form.component';
     MessagesComponent,
     DashboardComponent,
     JobSearchComponent,
-    JobFormComponent
+    JobFormComponent,
+    JobFormReduxComponent
   ],
   imports: [
     BrowserModule,
@@ -44,3 +46,4 @@ HttpClientInMemoryWebApiModule.forRoot(
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
