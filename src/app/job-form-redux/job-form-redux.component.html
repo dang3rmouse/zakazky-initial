@@ -1,18 +1,33 @@
+<h1> Add Job Form</h1>
+<p><strong>Form Status: {{ jobNewForm.status }}</strong></p>
 <form [formGroup]="jobNewForm" (ngSubmit)="onSubmit()">
-
-  <label for="first-name">ID: </label>
-  <input id="first-name" type="text" formControlName="id">
 
   <label for="last-name">Job Code: </label>
   <input id="last-name" type="text" formControlName="jobcode">
 
   <label for="last-name">Clients: </label>
-  <input id="last-name" type="text" formControlName="clients">
+  <input id="last-name" type="text" formControlName="client">
 
   <label for="last-name">Comment: </label>
   <input id="last-name" type="text" formControlName="comment">
 
+  <div formGroupName="money">
+    <h2>Value</h2>
+  
+    <label for="currency">Currency: </label>
+    <input id="currency" type="text" formControlName="currency">
+  
+    <label for="originalValue">Original Value: </label>
+    <input id="originalValue" type="text" formControlName="originalValue">
+  
+    <label for="resultingValue">Resulting Value: </label>
+    <input id="resultingValue" type="text" formControlName="resultingValue">
+  
+    <label for="confirmed">Confirmed? </label>
+    <input id="confirmed" type="text" formControlName="confirmed">
+  </div>
   <p>Complete the form to enable button.</p>
+  <button (click)="updateFormFields()">Update Form</button>
   <button type="submit" [disabled]="!jobNewForm.valid">Submit</button>
 
 </form>

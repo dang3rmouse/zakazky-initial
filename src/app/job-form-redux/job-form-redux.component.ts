@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Job } from '../job';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-job-form-redux',
@@ -28,15 +29,29 @@ export class JobFormReduxComponent {
 // end adding code from previous job form component
 
   jobNewForm = new FormGroup({
-    id: new FormControl(''),
     jobcode: new FormControl(''),
-    client: new FormControl(''),
+    client: new FormControl('',Validators.required),
     comment: new FormControl(''),
+    money: new FormGroup({
+      currency: new FormControl(''),
+      originalValue: new FormControl(''),
+      resultingValue: new FormControl(''),
+      confirmed: new FormControl('')
+    })
   });
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.jobNewForm.value);
+  }
+
+  updateFormFields() {
+    this.jobNewForm.patchValue({
+      jobcode: 'Simulated Update',
+      money: {
+        currency: 'CZK'
+      }
+    });
   }
 
 }
