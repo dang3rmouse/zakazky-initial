@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Job } from '../job';
-import { JOBS } from '../mock-jobs';
 import { JobService } from '../job.service';
 import { MessageService } from '../message.service';
 
