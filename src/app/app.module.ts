@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { JobDetailComponent } from './job-detail/job-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -37,7 +38,12 @@ import { JobFormComponent } from './job-form/job-form.component';
 // Remove it when a real server is ready to receive requests.
 HttpClientInMemoryWebApiModule.forRoot(
   InMemoryDataService, { dataEncapsulation: false, passThruUnknownUrl: true }
+<<<<<<< HEAD
 )
+=======
+),
+ReactiveFormsModule
+>>>>>>> 19ad13980f8141b3e069e138d48ce81c66bd401e
   ],
   providers: [],
   bootstrap: [AppComponent]

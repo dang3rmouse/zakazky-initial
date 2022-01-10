@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Job } from './job';
-import { JOBS } from './mock-jobs';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

@@ -1,14 +1,5 @@
 <h2>My Jobs</h2>
 
-<!-- Original with direct binding (onSelect)-->
-<!-- <ul class="jobs">
-    <li *ngFor="let job of jobs" (click)="onSelect(job)" [class.selected]="job === selectedJob">
-        <span class="badge">{{job.id}}</span> {{job.client}} {{job.jobcode}}
-    </li>
-</ul> -->
-
-<!-- Revised to use routes -->
-
 <ul class="jobs">
     <li *ngFor="let job of jobs">
       <a routerLink="/detail/{{job.id}}">
