@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Job } from '../job';
-import { JobService } from '../job.service';
-import { MessageService } from '../message.service';
+// import { JobService } from '../job.service';
+// import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-job-form',
