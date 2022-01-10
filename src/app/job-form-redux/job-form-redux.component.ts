@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Job } from '../job';
 
@@ -10,19 +10,20 @@ import { Job } from '../job';
 export class JobFormReduxComponent {
   
 // start adding code from previous job form component so I can keep the template
+// UPDATE: didn't work, so I am hiding this again
 
-  clients = ['Transperfect', 'Life in Translation',
-            'Channel Crossings', 'Travod', 'Wordminds'];
+  // clients = ['Transperfect', 'Life in Translation',
+  //           'Channel Crossings', 'Travod', 'Wordminds'];
 
-  model = new Job(9999, 'US1203456', this.clients[0], 'test job');
+  // model = new Job(9999, 'US1203456', this.clients[0], 'test job');
 
-  submitted = false;
+  // submitted = false;
 
-  newJob() {
-    this.model = new Job(42, '', '');
-  }
+  // newJob() {
+  //   this.model = new Job(42, '', '');
+  // }
 
-  onSubmit() { this.submitted = true; }
+  // onSubmit() { this.submitted = true; }
 
 // end adding code from previous job form component
 

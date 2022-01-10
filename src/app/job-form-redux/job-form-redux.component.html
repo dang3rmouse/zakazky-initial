@@ -1,56 +1,15 @@
-<div [hidden]="submitted">
+<form [formGroup]="jobNewForm" >
 
+  <label for="first-name">ID: </label>
+  <input id="first-name" type="text" formControlName="id">
 
-    <form (ngSubmit)="onSubmit()" #jobForm="ngForm">
-    <h2>Add Job Form</h2>
-    
-    {{ model | json }}
-    <div class="form-group">
-      <label for="jobcode">Job Code</label>
-      <input type="text" class="form-control" id="jobcode" #name="ngModel"
-             required
-             [(ngModel)]="model.jobcode" name="jobcode">
-             <div [hidden]="name.valid || name.pristine"
-         class="alert alert-danger">Job code is required. If you don't have one, just enter the name of the file or something.</div>
-    </div>
-    
-    
-    <div class="form-group">
-      <label for="comment">Comment</label>
-      <input type="text"  class="form-control" id="comment"
-             [(ngModel)]="model.comment" name="comment">
-    </div>
-    
-    <div class="form-group">
-      <label for="client">Client</label>
-      <select class="form-control" id="client"
-              required
-              [(ngModel)]="model.client" name="client">
-        <option *ngFor="let client of clients" [value]="client">{{client}}</option>
-      </select>
-    </div>
-    
-    
-    <button type="button" class="btn btn-default" (click)="newJob(); jobForm.reset()">New Job</button>
-    <button type="submit" class="btn btn-success" [disabled]="!jobForm.form.valid">Submit</button>
-    
-    
-    </form>
-    </div>
-    <div [hidden]="!submitted">
-        <h2>You submitted the following:</h2>
-        <div class="row">
-          <div class="col-xs-3">Job code</div>
-          <div class="col-xs-9">{{ model.jobcode }}</div>
-        </div>
-        <div class="row">
-          <div class="col-xs-3">Comment</div>
-          <div class="col-xs-9">{{ model.comment }}</div>
-        </div>
-        <div class="row">
-          <div class="col-xs-3">Client</div>
-          <div class="col-xs-9">{{ model.client }}</div>
-        </div>
-        <br>
-        <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-      </div>
+  <label for="last-name">Job Code: </label>
+  <input id="last-name" type="text" formControlName="jobcode">
+
+  <label for="last-name">Clients: </label>
+  <input id="last-name" type="text" formControlName="clients">
+
+  <label for="last-name">Comment: </label>
+  <input id="last-name" type="text" formControlName="comment">
+
+</form>
