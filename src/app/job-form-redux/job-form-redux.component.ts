@@ -33,4 +33,10 @@ export class JobFormReduxComponent {
     client: new FormControl(''),
     comment: new FormControl(''),
   });
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.jobNewForm.value);
+  }
+
 }
