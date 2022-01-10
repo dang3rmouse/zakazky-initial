@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Job } from '../job';
+import { JobsComponent } from '../jobs/jobs.component';
 
 @Component({
   selector: 'app-job-form',
   templateUrl: './job-form.component.html',
-  styleUrls: ['./job-form.component.scss']
+  styleUrls: ['./job-form.component.scss'],
 })
+
 export class JobFormComponent {
 
   clients = ['Transperfect', 'Life in Translation',

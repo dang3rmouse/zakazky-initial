@@ -41,7 +41,7 @@ private log(message: string) {
 }
 
 // data api 
-private jobsUrl = 'api/jobs';  // URL to web api
+private jobsUrl = 'http://localhost:3000/jobs-data';  // URL to web api
 
 /**
  * Handle Http operation that failed.
