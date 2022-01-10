@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Job } from '../job';
 import { Validators } from '@angular/forms';
@@ -18,13 +18,13 @@ export class JobFormReduxComponent {
 
   // model = new Job(9999, 'US1203456', this.clients[0], 'test job');
 
-  // submitted = false;
+   submitted = false;
 
   // newJob() {
   //   this.model = new Job(42, '', '');
   // }
 
-  // onSubmit() { this.submitted = true; }
+  // onSubmit() { this.submitted = true; } -- ADDED BELOW
 
 // end adding code from previous job form component
 
@@ -41,9 +41,17 @@ export class JobFormReduxComponent {
   });
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
+    // TODO: Use EventEmitter with form value  --  TRIED THIS, SEE BELOW
     console.warn(this.jobNewForm.value);
+    this.submitted = true;
   }
+
+  @Output() EM = new EventEmitter<Job>();
+submit() {
+    if (this.jobNewForm.valid) {
+    this.EM.emit(this.jobNewForm.value);
+  }
+}
 
   updateFormFields() {
     this.jobNewForm.patchValue({
