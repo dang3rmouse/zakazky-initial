@@ -1,7 +1,10 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Job } from '../job';
 import { Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { JobService } from '../job.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-job-form-redux',
@@ -9,7 +12,12 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./job-form-redux.component.scss']
 })
 export class JobFormReduxComponent {
-  
+
+  SERVER_URL = "http://localhost:3000/jobs";
+
+  constructor(private jobService: JobService, private messageService: MessageService ) { }
+
+
 // start adding code from previous job form component so I can keep the template
 // UPDATE: didn't work, so I am hiding this again
 
@@ -46,12 +54,12 @@ export class JobFormReduxComponent {
     this.submitted = true;
   }
 
-  @Output() EM = new EventEmitter<Job>();
-submit() {
-    if (this.jobNewForm.valid) {
-    this.EM.emit(this.jobNewForm.value);
-  }
-}
+//   @Output() EM = new EventEmitter<Job>();
+// submit() {
+//     if (this.jobNewForm.valid) {
+//     this.EM.emit(this.jobNewForm.value);
+//   }
+// }
 
   updateFormFields() {
     this.jobNewForm.patchValue({
