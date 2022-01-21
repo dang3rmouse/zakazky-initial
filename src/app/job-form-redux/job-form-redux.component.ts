@@ -15,7 +15,9 @@ export class JobFormReduxComponent {
 
   SERVER_URL = "http://localhost:3000/jobs";
 
-  constructor(private jobService: JobService, private messageService: MessageService ) { }
+  jobs: Job[] = [];
+
+  constructor(private jobService: JobService, private messageService: MessageService, private jobFormBuilder: FormBuilder ) { }
 
 
 // start adding code from previous job form component so I can keep the template
@@ -48,18 +50,23 @@ export class JobFormReduxComponent {
     })
   });
 
-  onSubmit() {
-    // TODO: Use EventEmitter with form value  --  TRIED THIS, SEE BELOW
-    console.warn(this.jobNewForm.value);
-    this.submitted = true;
-  }
+  // add(job: Job): void {
+  //   job = job.trim();
+  //   if (!jobcode) { return; }
+  //   this.jobService.addJob({ jobcode } as Job)
+  //     .subscribe(job => {
+  //       this.jobs.push(job);
+  //     });
+  // }
 
-//   @Output() EM = new EventEmitter<Job>();
-// submit() {
-//     if (this.jobNewForm.valid) {
-//     this.EM.emit(this.jobNewForm.value);
-//   }
-// }
+@Output() EM = new EventEmitter<Job>();
+onSubmit() {
+    if (this.jobNewForm.valid) {
+    this.EM.emit(this.jobNewForm.value);
+  }
+  console.log(this.jobNewForm.value);
+    this.submitted = true;
+}
 
   updateFormFields() {
     this.jobNewForm.patchValue({
