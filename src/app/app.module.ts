@@ -18,6 +18,7 @@ import { InMemoryDataService} from './in-memory-data.service';
 import { JobSearchComponent } from './job-search/job-search.component';
 import { JobFormComponent } from './job-form/job-form.component';
 import { JobFormReduxComponent } from './job-form-redux/job-form-redux.component';
+import { JobsStylingComponent } from './jobs-styling/jobs-styling.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { JobFormReduxComponent } from './job-form-redux/job-form-redux.component
     DashboardComponent,
     JobSearchComponent,
     JobFormComponent,
-    JobFormReduxComponent
+    JobFormReduxComponent,
+    JobsStylingComponent
   ],
   imports: [
     BrowserModule,
